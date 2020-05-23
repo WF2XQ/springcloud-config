@@ -1,0 +1,55 @@
+spring:
+  profiles:
+    active: dev
+---
+
+spring:
+  profiles: dev
+  application:
+    name: springcloud-provider-dept  #3个服务名字一样
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/db02?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#Eureka配置，注册服务到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://127.0.0.1:7002/eureka/,http://192.168.1.8:7003/eureka/
+  #instance:
+    #instance-id: springcloud-provider-dept-8002  #修改Eureka上默认的描述信息
+
+#完善监控信息,就是Eureka上默认的描述信息点进去后能看到的数据
+info:
+  app.name: wangfeng-springcloud
+  company: com.wangfeng
+  
+---
+spring:
+  profiles: test
+  application:
+    name: springcloud-provider-dept  #3个服务名字一样
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/db02?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#Eureka配置，注册服务到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://127.0.0.1:7002/eureka/,http://192.168.1.8:7003/eureka/
+  #instance:
+    #instance-id: springcloud-provider-dept-8002  #修改Eureka上默认的描述信息
+
+#完善监控信息,就是Eureka上默认的描述信息点进去后能看到的数据
+info:
+  app.name: wangfeng-springcloud
+  company: com.wangfeng
